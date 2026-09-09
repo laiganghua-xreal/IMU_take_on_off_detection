@@ -1,4 +1,4 @@
-# EgoCHARM 初学者版 PyTorch 复现
+# EgoCHARM PyTorch 复现
 
 本项目使用 Ego-Exo4D 左侧 IMU，实现论文 EgoCHARM 的七分类方法级复现。
 代码刻意分成两个阶段：先把 VRS 预处理成普通 NumPy 缓存，再由 PyTorch
