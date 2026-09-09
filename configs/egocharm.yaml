@@ -1,0 +1,46 @@
+# 数据路径与信号处理设置
+data:
+  selection: ego-exoD4_dataset/metadata/egocharm_available_selection.json
+  dataset_root: ego-exoD4_dataset
+  cache_root: artifacts/cache/imu-left
+  sampling_rate_hz: 50
+  maximum_gap_seconds: 0.1
+  minimum_segment_seconds: 30
+  window_seconds: 30
+  normalization: gravity
+  stride_seconds: 10
+
+# EgoCHARM 模型结构
+model:
+  class_names:
+    - Basketball
+    - Soccer
+    - Dance
+    - Rock Climbing
+    - Cooking
+    - Bike Repair
+    - Music
+  number_of_classes: 7
+  input_channels: 6
+  branch_channels: 11
+  kernel_size: 2
+  dilations: [1, 2, 4, 8, 16]
+  number_of_blocks: 3
+  dropout: 0.2
+  low_level_hidden_size: 32
+  high_level_hidden_size: 128
+
+# 训练参数
+training:
+  seed: 42
+  number_of_epochs: 30
+  batch_size: 32
+  number_of_workers: 4
+  learning_rate: 0.001
+  weight_decay: 0.0
+  scheduler_step_size: 10
+  scheduler_gamma: 0.1
+  maximum_gradient_norm: null
+  use_mixed_precision: true
+  device: auto
+  output_root: artifacts/runs

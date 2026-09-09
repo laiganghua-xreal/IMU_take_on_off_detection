@@ -1,0 +1,31 @@
+# Project-local environments and package caches
+.conda-envs/
+.mamba/
+.miniforge/
+.venv/
+.bootstrap/
+
+# Python build and test artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Reproduction outputs
+artifacts/
+
+# Local datasets and generated manifests
+ego-exoD4_dataset/takes/
+ego-exoD4_dataset/metadata/
+Xreal_datasets/metadata/
+Xreal_datasets/data/
+
+# Model weights and generated numerical caches
+*.pt
+*.pth
+*.ckpt
+*.vrs
+*.npz
+*.npy

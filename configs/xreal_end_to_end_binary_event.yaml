@@ -1,0 +1,37 @@
+task:
+  label_mode: binary_event
+
+data:
+  selection: Xreal_datasets/metadata/xreal_wear_selection.json
+  cache_root: artifacts/xreal_wear_detection/cache/xreal_cpf
+  coordinate_frame: cpf
+  sampling_rate_hz: 50
+  window_seconds: 5
+  normalization: gravity
+
+model:
+  initialization: random_end_to_end
+  class_names: [NO_EVENT, EVENT]
+  number_of_classes: 2
+  input_channels: 6
+  branch_channels: 11
+  kernel_size: 2
+  dilations: [1, 2, 4, 8, 16]
+  number_of_blocks: 3
+  dropout: 0.2
+  low_level_hidden_size: 32
+  high_level_hidden_size: 32
+
+training:
+  seed: 42
+  number_of_epochs: 30
+  batch_size: 16
+  number_of_workers: 2
+  learning_rate: 0.001
+  weight_decay: 0.0
+  scheduler_step_size: 10
+  scheduler_gamma: 0.1
+  maximum_gradient_norm: null
+  use_mixed_precision: true
+  device: auto
+  output_root: artifacts/xreal_wear_detection/runs/xreal_end_to_end
